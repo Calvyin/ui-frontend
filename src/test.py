@@ -12,6 +12,10 @@ def main(page: ft.Page):
         center_title=False,
         bgcolor=ft.Colors.SURFACE_CONTAINER_HIGHEST,
         actions=[
+            ft.Text("HOME"),
+            ft.Text("CASE STUDIES"),
+            ft.Text("CLIENTS"),
+            ft.Text("CONTACT"),
             ft.IconButton(ft.Icons.WB_SUNNY_OUTLINED),
             ft.IconButton(ft.Icons.FILTER_3),
             ft.PopupMenuButton(
