@@ -8,7 +8,7 @@ def main(page: ft.Page):
     page.appbar = ft.AppBar(
         leading=ft.Icon(ft.Icons.PALETTE),
         leading_width=40,
-        title=ft.Text("AppBar Example"),
+        title=ft.Text("MY FIRST PROJECT"),
         center_title=False,
         bgcolor=ft.Colors.SURFACE_CONTAINER_HIGHEST,
         actions=[
