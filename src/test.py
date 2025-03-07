@@ -1,14 +1,29 @@
 import flet as ft
 
 def main(page: ft.Page):
-    page.add(
-        ft.Stack(
-            [
-                ft.Container(bgcolor=ft.colors.GREY_300, width=300, height=200),  # Background
-                ft.Container(ft.Text("Top Left"), bgcolor=ft.colors.RED, width=100, height=50, left=0, top=0),
-                ft.Container(ft.Text("Bottom Right"), bgcolor=ft.colors.BLUE, width=100, height=50, right=0, bottom=0)
-            ]
-        )
-    )
+    def check_item_clicked(e):
+        e.control.checked = not e.control.checked
+        page.update()
 
+    page.appbar = ft.AppBar(
+        leading=ft.Icon(ft.Icons.PALETTE),
+        leading_width=40,
+        title=ft.Text("AppBar Example"),
+        center_title=False,
+        bgcolor=ft.Colors.SURFACE_CONTAINER_HIGHEST,
+        actions=[
+            ft.IconButton(ft.Icons.WB_SUNNY_OUTLINED),
+            ft.IconButton(ft.Icons.FILTER_3),
+            ft.PopupMenuButton(
+                items=[
+                    ft.PopupMenuItem(text="Item 1"),
+                    ft.PopupMenuItem(),  # divider
+                    ft.PopupMenuItem(
+                        text="Checked item", checked=False, on_click=check_item_clicked
+                    ),
+                ]
+            ),
+        ],
+    )
+    page.add(ft.Text("Body!"))
 ft.app(target=main)
